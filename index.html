@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Sitios - Fundación SCP</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #eee;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      background-color: #111;
+      padding: 1rem 2rem;
+      text-align: center;
+      border-top: 2px solid #333;
+      border-bottom: 2px solid #333;
+    }
+
+    main {
+      flex: 1;
+      padding: 1.5rem;
+    }
+
+    .titulo {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: rgb(255, 255, 255);
+    }
+
+    .botones {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 por fila */
+      gap: 1rem 1.2rem;
+      justify-content: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      background-color: #1a1a1a;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+      width: 100%;
+      max-width: 320px;
+      height: 80px;
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
+    }
+
+    .btn img {
+      height: 60px;
+      width: 60px;
+      object-fit: cover;
+      margin-left: 6px;
+      border-radius: 4px;
+    }
+
+    .btn .texto {
+      flex: 1;
+      text-align: center;
+      padding: 0 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #eee;
+    }
+
+    .pantalla-carga {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .pantalla-carga.mostrar {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .barra-carga {
+      width: 300px;
+      height: 20px;
+      background-color: #222;
+      border: 1px solid #444;
+      overflow: hidden;
+      position: relative;
+      border-radius: 6px;
+    }
+
+    .barra-carga::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background-color: #fff;
+      animation: cargar 2s linear forwards;
+    }
+
+    @keyframes cargar {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .botones {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .btn {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Base de Datos - Sitios y Áreas</h1>
+  </header>
+
+  <main>
+    <div class="titulo"><strong>Seleccione un Sitio / Área</strong></div>
+
+    <div class="botones">
+      <div class="btn" data-link="Sitio35/index.html">
+        <img src="fotos/LogoS35.png" alt="Sitio-35">
+        <div class="texto">SITIO-35</div>
+      </div>
+
+      <div class="btn" data-link="Area7/index.html">
+        <img src="fotos/logoA07.png" alt="Área-7">
+        <div class="texto">ÁREA-7</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Fundación SCP</p>
+  </footer>
+
+  <!-- Pantalla de carga -->
+  <div class="pantalla-carga" id="pantalla-carga">
+    <div class="barra-carga"></div>
+  </div>
+
+  <script>
+    function iniciarCarga(destino) {
+      const pantalla = document.getElementById('pantalla-carga');
+      document.body.innerHTML = '';
+      document.body.appendChild(pantalla);
+      pantalla.classList.add('mostrar');
+
+      setTimeout(() => {
+        window.location.href = destino;
+      }, 2000);
+    }
+
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const destino = btn.getAttribute('data-link');
+        if (destino) iniciarCarga(destino);
+      });
+    });
+  </script>
+
+</body>
+</html>
