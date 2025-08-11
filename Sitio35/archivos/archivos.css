@@ -1,0 +1,252 @@
+/* ===== Estilos Globales ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #111;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== Encabezado ===== */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid rgb(44, 138, 215);
+  flex-wrap: wrap;
+}
+
+.encabezado-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.logo-grande {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.encabezado-texto h1 {
+  margin: 0;
+  color: rgb(44, 138, 215);
+  font-size: 1.8rem;
+}
+
+.encabezado-texto h2 {
+  margin: 0;
+  color: #eee;
+  font-size: 1.7rem;
+  font-weight: normal;
+}
+
+.encabezado-derecha ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.encabezado-derecha a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(44, 138, 215);
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.encabezado-derecha a:hover,
+.encabezado-derecha .activo {
+  background-color: rgb(44, 138, 215);
+  color: #000;
+  font-weight: bold;
+}
+
+/* ===== Main y Footer ===== */
+main {
+  padding: 2rem;
+  flex: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  border-top: 1px solid #444;
+}
+
+/* ===== Sección Archivos ===== */
+.seccion-archivos {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.seccion-archivos h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: rgb(44, 138, 215);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+/* Barra de búsqueda */
+#busquedaInput {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 2rem auto;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid rgb(44, 138, 215);
+  border-radius: 5px;
+  background-color: #1a1a1a;
+  color: #eee;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#busquedaInput:focus {
+  border-color: rgb(70, 160, 230);
+}
+
+/* Botones departamentos */
+.botones-departamentos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.botones-departamentos button {
+  background-color: rgb(44, 138, 215);
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  min-width: 220px;
+  text-align: center;
+  user-select: none;
+}
+
+.botones-departamentos button:hover {
+  background-color: rgb(70, 160, 230);
+}
+
+/* SCROLLBAR ESTILOS */
+
+/* Tamaño general de la scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* ancho para scroll vertical */
+  height: 10px; /* alto para scroll horizontal */
+}
+
+/* Fondo de la pista (track) */
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+/* Color del "thumb" (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+  background: rgb(44, 138, 215);
+  /* border-radius: 5px;  <-- Eliminar esta línea para que sea rectangular */
+}
+
+/* Hover sobre el thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(70, 160, 230);
+}
+
+/* Opcional: scrollbar en elementos específicos */
+body {
+  scrollbar-width: thin;              /* para Firefox */
+  scrollbar-color: rgb(44, 138, 215) #1a1a1a; /* para Firefox */
+}
+
+/* ===== Menú lateral desde la derecha ===== */
+
+/* Ocultar el checkbox */
+.menu-toggle-checkbox {
+  display: none;
+}
+
+/* Botón del menú */
+.menu-btn {
+  background-color: #1a1a1a;
+  border: 1px solid rgb(44, 138, 215);
+  color: #ccc;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+
+  /* SOLUCIÓN */
+  position: relative;
+  z-index: 1100;
+}
+
+
+.menu-btn:hover {
+  background-color: rgb(44, 138, 215);
+  color: #000;
+  font-weight: bold;
+}
+
+/* Barra lateral derecha */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  height: 100%;
+  width: 220px;
+  background-color: #111;
+  border-left: 2px solid rgb(44, 138, 215);
+  padding-top: 4rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Mostrar menú al marcar checkbox */
+.menu-toggle-checkbox:checked + header + .sidebar {
+  right: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0 0;  /* 2rem de margen arriba */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sidebar a {
+  color: #ccc;
+  padding: 1rem;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+  display: block;
+  transition: background 0.2s;
+}
+
+
+.sidebar a:hover {
+  background-color: rgb(44, 138, 215);
+  color: #000;
+  font-weight: bold;
+}

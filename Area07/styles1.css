@@ -1,0 +1,143 @@
+/* Ajustes base para altura completa y estructura flexible */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111;
+  color: #eee;
+  font-family: 'Courier New', Courier, monospace;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabecera con logo a la izquierda y menú a la derecha */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid rgb(199, 5, 80);
+  flex-wrap: wrap;
+}
+
+.encabezado-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.logo-grande {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.encabezado-texto h1 {
+  margin: 0;
+  color: rgb(199, 5, 80);
+  font-size: 1.8rem;
+}
+
+.encabezado-texto h2 {
+  margin: 0;
+  color: #eee;
+  font-size: 1.7rem;
+  font-weight: normal;
+}
+
+/* Navegación a la derecha */
+.encabezado-derecha ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.encabezado-derecha a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(199, 5, 80);
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.encabezado-derecha a:hover {
+  background-color: rgb(199, 5, 80);
+  color: #000;
+  font-weight: bold;
+}
+
+/* Main con expansión flexible y contenido centrado */
+main {
+  padding: 2rem;
+  flex: 1;
+}
+
+.intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Footer siempre al fondo */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  border-top: 1px solid #444;
+}
+
+/* SCROLLBAR ESTILOS */
+
+/* Tamaño general de la scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* ancho para scroll vertical */
+  height: 10px; /* alto para scroll horizontal */
+}
+
+/* Fondo de la pista (track) */
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+/* Color del "thumb" (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+  background: rgb(199, 5, 80);
+  /* border-radius: 5px;  <-- Eliminar esta línea para que sea rectangular */
+}
+
+/* Hover sobre el thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(199, 5, 80);
+}
+
+/* Opcional: scrollbar en elementos específicos */
+body {
+  scrollbar-width: thin;              /* para Firefox */
+  scrollbar-color: rgb(199, 5, 80) #1a1a1a; /* para Firefox */
+}
+
+/* Caja de introducción */
+.caja-intro {
+  width: 100%;
+  max-width: 2000px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ab1850;
+  border-radius: 0;
+  background-color: rgb(199, 5, 80, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Archivos | Area-7</title>
+  <link rel="stylesheet" href="archivos.css" />
+</head>
+<body>
+  <header class="encabezado">
+    <div class="encabezado-izquierda">
+      <img src="../fotos/LogoA07.png" alt="Logo Area-7" class="logo-grande" />
+      <div class="encabezado-texto">
+        <h2>Fundación SCP</h2>
+        <h1>Area-7</h1>
+      </div>
+    </div>
+
+    <nav class="encabezado-derecha">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="archivos.html" class="activo">Archivos</a></li>
+        <li><a href="../personal/personal.html">Personal</a></li>
+        <li><a href="../eventos/eventos.html">Eventos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion-archivos">
+      <h2>Archivos por Departamento</h2>
+
+      <input
+        type="text"
+        id="busquedaInput"
+        placeholder="Buscar departamento..."
+        autocomplete="off"
+        aria-label="Buscar departamento"
+      />
+
+      <div class="botones-departamentos" id="listaDepartamentos">
+        <button data-nombre="Departamento Administrativo" onclick="location.href='DepAdministrativo/documentos.html'">
+          Departamento Administrativo
+        </button>
+        <button data-nombre="Departamento de Investigación" onclick="location.href='DepInvestigacion/documentos.html'">
+          Departamento de Investigación
+        </button>
+        <button data-nombre="Departamento de Seguridad" onclick="location.href='DepSeguridad/documentos.html'">
+          Departamento de Seguridad
+        </button>
+        <button data-nombre="Departamento de Contencion" onclick="location.href='DepContencion/documentos.html'">
+          Departamento de Contención
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Fundación SCP</p>
+  </footer>
+
+  <script>
+    const busquedaInput = document.getElementById('busquedaInput');
+    const listaDepartamentos = document.getElementById('listaDepartamentos');
+    const botones = listaDepartamentos.getElementsByTagName('button');
+
+    busquedaInput.addEventListener('input', () => {
+      const filtro = busquedaInput.value.toLowerCase();
+      for (const boton of botones) {
+        const nombre = boton.getAttribute('data-nombre').toLowerCase();
+        boton.style.display = nombre.includes(filtro) ? 'inline-block' : 'none';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Archivos | Sitio-35</title>
+  <link rel="stylesheet" href="archivos.css" />
+</head>
+<body>
+  <!-- Checkbox oculto para controlar el menú lateral -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+
+  <!-- Encabezado principal -->
+  <header class="encabezado">
+    <div class="encabezado-izquierda">
+      <img src="../fotos/LogoS35.png" alt="Logo Sitio-35" class="logo-grande" />
+      <div class="encabezado-texto">
+        <h2>Fundación SCP</h2>
+        <h1>Sitio-35</h1>
+      </div>
+    </div>
+
+    <!-- Botón que activa el menú lateral desde la derecha -->
+    <label for="menu-toggle" class="menu-btn">☰ Menú</label>
+  </header>
+
+  <!-- Menú lateral (desde la derecha) -->
+  <nav class="sidebar sidebar-derecha">
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../archivos/archivos.html">Archivos</a></li>
+      <li><a href="../personal/personal.html">Personal</a></li>
+      <li><a href="../eventos/eventos.html">Eventos</a></li>
+      <li><a href="../../index.html">Lista de Sitios</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="seccion-archivos">
+      <h2>Archivos por Departamento</h2>
+
+      <input
+        type="text"
+        id="busquedaInput"
+        placeholder="Buscar departamento..."
+        autocomplete="off"
+        aria-label="Buscar departamento"
+      />
+
+      <div class="botones-departamentos" id="listaDepartamentos">
+        <button data-nombre="Departamento Administrativo" onclick="location.href='DepAdministrativo/documentos.html'">
+          Departamento Administrativo
+        </button>
+        <button data-nombre="Departamento de Investigación" onclick="location.href='DepInvestigacion/documentos.html'">
+          Departamento de Investigación
+        </button>
+        <button data-nombre="Departamento de Seguridad" onclick="location.href='DepSeguridad/documentos.html'">
+          Departamento de Seguridad
+        </button>
+        <button data-nombre="Departamento de Contencion" onclick="location.href='DepContencion/documentos.html'">
+          Departamento de Contención
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Fundación SCP</p>
+  </footer>
+
+  <script>
+    const busquedaInput = document.getElementById('busquedaInput');
+    const listaDepartamentos = document.getElementById('listaDepartamentos');
+    const botones = listaDepartamentos.getElementsByTagName('button');
+
+    busquedaInput.addEventListener('input', () => {
+      const filtro = busquedaInput.value.toLowerCase();
+      for (const boton of botones) {
+        const nombre = boton.getAttribute('data-nombre').toLowerCase();
+        boton.style.display = nombre.includes(filtro) ? 'inline-block' : 'none';
+      }
+    });
+  </script>
+</body>
+</html>

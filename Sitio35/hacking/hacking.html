@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulador de Hacking | Sitio-35</title>
+  <link rel="stylesheet" href="hacking.css" />
+</head>
+<body>
+
+  <header class="encabezado">
+    <div class="encabezado-izquierda">
+      <img src="../fotos/LogoS35.png" alt="Logo Sitio-35" class="logo-grande" />
+      <div class="encabezado-texto">
+        <h2>Fundación SCP</h2>
+        <h1>Sitio-35</h1>
+      </div>
+    </div>
+    <a href="javascript:history.back()" class="menu-btn">← Volver</a>
+  </header>
+
+  <main>
+    <section class="terminal">
+      <div class="pantalla" id="pantalla">
+        <strong>Terminal del Consejo O5 - Sitio-35</strong>
+      </div>
+      <form id="comandoForm">
+        <label>root@sitio-35:~# </label>
+        <input type="text" id="comandoInput" autocomplete="off" autofocus />
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Fundación SCP</p>
+  </footer>
+
+  <!-- Overlay minijuego -->
+  <div id="minijuegoOverlay">
+    <canvas id="juegoCanvas" width="600" height="400"></canvas>
+    <button id="cerrarMinijuego">Cerrar</button>
+  </div>
+
+  <!-- JS embebido al final para rendimiento -->
+  <script src="main.js"></script>
+</body>
+</html>
